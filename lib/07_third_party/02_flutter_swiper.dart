@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:dio/dio.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -27,28 +27,33 @@ class Home extends StatelessWidget {
 }
 
 class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+  MyWidget({super.key});
+
+  final List<String> images = [
+    'images/01.jpg',
+    'images/02.jpg',
+    'images/03.jpg'
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        child: Text('点击发送请求'),
-        onPressed: () {
-          getIpAddress();
-        },
-      ),
+    return ListView(
+      children: [
+        Container(
+          height: 200,
+          child: Swiper(
+            itemCount: images.length,
+            itemBuilder: (context, index) {
+              return Image.asset(
+                images[index],
+                fit: BoxFit.cover,
+              );
+            },
+            viewportFraction: 0.7,
+            scale: 0.7,
+          ),
+        )
+      ],
     );
-  }
-
-  void getIpAddress() async {
-    print(11);
-    try {
-      final url = 'https://httpbin.org/ip';
-      Response res = await Dio().get(url);
-      print(res);
-    } catch (error) {
-      print(error);
-    }
   }
 }

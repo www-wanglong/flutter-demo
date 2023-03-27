@@ -1,14 +1,13 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 
-import '07_third_party/01_dio.dart';
+import '07_third_party/02_flutter_swiper.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
