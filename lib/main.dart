@@ -1,7 +1,7 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 
-import '07_third_party/02_flutter_swiper.dart';
+import '07_third_party/03_shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
